@@ -5,13 +5,15 @@ Codex Format v1.0
 
 A sovereign ledger system for tracking lineage-linked assets
 across the Compass Quadrants: North (Gold), East (Oil), South (Healing), West (Energy)
+
+Integrated with EVOLVERSE Reciprocity-Velocity-Reality Systems Atlas
 """
 
 import json
 import yaml
 from datetime import datetime, timezone
 from hashlib import sha256, sha3_256
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
 import secrets
 
 
@@ -86,10 +88,12 @@ class InfiniteLedger:
     The Infinite Inaugural Exchange Ledger
     
     Manages participants, assets, and exchange logic across the Compass Quadrants
+    Integrated with EVOLVERSE Reciprocity-Velocity-Reality Systems Atlas
     """
     
     def __init__(self, treasurer: str = "Commander Bleu", 
-                 jurisdiction: str = "BLEUchain • Overscale Grid • MirrorVaults"):
+                 jurisdiction: str = "BLEUchain • Overscale Grid • MirrorVaults",
+                 enable_evolverse: bool = True):
         self.ledger_id = "Infinite-Ledger-of-Currents"
         self.timestamp = datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z')
         self.treasurer = treasurer
@@ -116,6 +120,12 @@ class InfiniteLedger:
                 "center": "Z-anchor locked"
             }
         }
+        
+        # EVOLVERSE Systems Atlas integration
+        self.evolverse_enabled = enable_evolverse
+        self.evolverse_atlas_id: Optional[str] = None
+        if enable_evolverse:
+            self.evolverse_atlas_id = f"EVOLVERSE-{secrets.token_hex(8).upper()}"
     
     def add_participant(self, participant: Participant) -> None:
         """Add a participant to the ledger"""
@@ -195,7 +205,7 @@ class InfiniteLedger:
     
     def to_dict(self) -> Dict:
         """Convert ledger to dictionary format"""
-        return {
+        data = {
             "ledger_id": self.ledger_id,
             "timestamp": self.timestamp,
             "treasurer": self.treasurer,
@@ -209,6 +219,17 @@ class InfiniteLedger:
             },
             "exchange_logic": self.exchange_logic
         }
+        
+        # Add EVOLVERSE integration if enabled
+        if self.evolverse_enabled:
+            data["evolverse_integration"] = {
+                "enabled": True,
+                "atlas_id": self.evolverse_atlas_id,
+                "reciprocity_engine": "R(x) = x + 1/x",
+                "systems_recursive": True
+            }
+        
+        return data
     
     def to_yaml(self) -> str:
         """Export ledger to YAML format"""
@@ -231,12 +252,20 @@ class InfiniteLedger:
     @classmethod
     def from_dict(cls, data: Dict) -> 'InfiniteLedger':
         """Create ledger from dictionary"""
+        # Check for EVOLVERSE integration
+        evolverse_enabled = data.get("evolverse_integration", {}).get("enabled", True)
+        
         ledger = cls(
             treasurer=data.get("treasurer", "Commander Bleu"),
-            jurisdiction=data.get("jurisdiction", "BLEUchain • Overscale Grid • MirrorVaults")
+            jurisdiction=data.get("jurisdiction", "BLEUchain • Overscale Grid • MirrorVaults"),
+            enable_evolverse=evolverse_enabled
         )
         ledger.ledger_id = data.get("ledger_id", ledger.ledger_id)
         ledger.timestamp = data.get("timestamp", ledger.timestamp)
+        
+        # Load EVOLVERSE atlas ID if present
+        if "evolverse_integration" in data:
+            ledger.evolverse_atlas_id = data["evolverse_integration"].get("atlas_id")
         
         # Load participants
         for p_data in data.get("participants", []):
