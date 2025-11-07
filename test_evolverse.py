@@ -366,11 +366,9 @@ def test_reciprocity_cores_initialization():
     
     atlas = EVOLVERSEAtlas()
     
-    core_domains = [core.domain for core in atlas.reciprocity_cores]
-    assert "Math" in core_domains
-    assert "Physics" in core_domains
-    assert "Chemistry" in core_domains
-    assert "Biology" in core_domains
+    core_domains = {core.domain for core in atlas.reciprocity_cores}
+    expected_domains = {"Math", "Physics", "Chemistry", "Biology"}
+    assert core_domains == expected_domains, f"Expected {expected_domains}, got {core_domains}"
     
     # Test specific core
     math_core = next(c for c in atlas.reciprocity_cores if c.domain == "Math")

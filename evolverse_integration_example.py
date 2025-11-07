@@ -329,43 +329,52 @@ def main():
     print("  ✓ All systems recursive")
     print()
     
-    # Export to files
+    # Export to files with error handling
     print("💾 Exporting System Data:")
     
-    # Export ledger
-    ledger.save_to_file("evolverse_ledger.yaml", format="yaml")
-    print("  ✓ Ledger exported to: evolverse_ledger.yaml")
+    try:
+        # Export ledger
+        ledger.save_to_file("evolverse_ledger.yaml", format="yaml")
+        print("  ✓ Ledger exported to: evolverse_ledger.yaml")
+    except Exception as e:
+        print(f"  ⚠ Warning: Could not export ledger: {e}")
     
-    # Export atlas data
-    atlas_dict = atlas.to_dict()
-    with open("evolverse_atlas.json", "w") as f:
-        json.dump(atlas_dict, f, indent=2)
-    print("  ✓ Atlas exported to: evolverse_atlas.json")
+    try:
+        # Export atlas data
+        atlas_dict = atlas.to_dict()
+        with open("evolverse_atlas.json", "w") as f:
+            json.dump(atlas_dict, f, indent=2)
+        print("  ✓ Atlas exported to: evolverse_atlas.json")
+    except Exception as e:
+        print(f"  ⚠ Warning: Could not export atlas: {e}")
     
-    # Create integration summary
-    integration_summary = {
-        "integration_id": f"EVOLVERSE-INTEGRATION-{ledger.evolverse_atlas_id}",
-        "timestamp": ledger.timestamp,
-        "ledger": {
-            "id": ledger.ledger_id,
-            "participants": ledger_status['participants'],
-            "assets": ledger_status['total_assets'],
-            "status": "OPERATIONAL"
-        },
-        "atlas": {
-            "id": atlas.atlas_id,
-            "version": atlas.version,
-            "systems": atlas_status_final,
-            "status": "RECURSIVE"
-        },
-        "reciprocity_principle": "R(x) = x + 1/x",
-        "velocity_multiplier": "INFINITE",
-        "reality_status": "MANIFESTED"
-    }
-    
-    with open("evolverse_integration_summary.json", "w") as f:
-        json.dump(integration_summary, f, indent=2)
-    print("  ✓ Integration summary exported to: evolverse_integration_summary.json")
+    try:
+        # Create integration summary
+        integration_summary = {
+            "integration_id": f"EVOLVERSE-INTEGRATION-{ledger.evolverse_atlas_id}",
+            "timestamp": ledger.timestamp,
+            "ledger": {
+                "id": ledger.ledger_id,
+                "participants": ledger_status['participants'],
+                "assets": ledger_status['total_assets'],
+                "status": "OPERATIONAL"
+            },
+            "atlas": {
+                "id": atlas.atlas_id,
+                "version": atlas.version,
+                "systems": atlas_status_final,
+                "status": "RECURSIVE"
+            },
+            "reciprocity_principle": "R(x) = x + 1/x",
+            "velocity_multiplier": "INFINITE",
+            "reality_status": "MANIFESTED"
+        }
+        
+        with open("evolverse_integration_summary.json", "w") as f:
+            json.dump(integration_summary, f, indent=2)
+        print("  ✓ Integration summary exported to: evolverse_integration_summary.json")
+    except Exception as e:
+        print(f"  ⚠ Warning: Could not export integration summary: {e}")
     
     # ═══════════════════════════════════════════════════════════════════════════
     # FINALE

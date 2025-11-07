@@ -30,9 +30,23 @@ class ReciprocityCore:
     description: str
     
     def reciprocal_operator(self, x: float) -> float:
-        """Calculate R(x) = x + 1/x"""
+        """
+        Calculate R(x) = x + 1/x (Reciprocity Operator)
+        
+        Args:
+            x: Input value (must be non-zero)
+            
+        Returns:
+            The reciprocal operator result
+            
+        Raises:
+            ValueError: If x is zero (division by zero)
+        """
         if x == 0:
-            raise ValueError("Cannot compute reciprocal of zero")
+            raise ValueError(
+                f"Reciprocal operator R(x) = x + 1/x cannot compute with x=0. "
+                f"Division by zero is undefined. Please provide a non-zero value."
+            )
         return x + (1/x)
     
     def to_dict(self) -> Dict:
