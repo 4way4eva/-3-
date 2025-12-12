@@ -7485,3 +7485,147 @@ The Compass is spinning. The Vault is glowing. The Grid is yours.
 ---
 
 **BLEUMAIL the Compass • Pin the CID • Push the Exchange Live** 🦉📜🧬🪙
+
+---
+
+## π₄ Treasury Model - Triple-Stack Operationalization
+
+### Overview
+
+The **π₄ Treasury Model** extends the Infinite Ledger with advanced triple-stack treasury management spanning:
+
+- 🏛️ **Civilian Economy**: Infrastructure, housing, commerce
+- ⚔️ **Military Economy**: Defense, tactical operations, sovereignty
+- 🌌 **Cosmic Economy**: Multidimensional assets, quantum gateways
+
+### Key Features
+
+#### 1. Quarter-Law Flow Tracing
+Visual mapping of current flow arcs across compass quadrants with **π⁴ curvature calculations** (π⁴ ≈ 97.409091):
+
+```
+Curvature = log(1 + π⁴ × flow_value) / flow_value
+```
+
+#### 2. π₄ Compounding Protocol
+Demonstrates transition from linear yield to **overscale acceleration**:
+
+```
+Period 1:  Linear $10    → π₄ $974      (×97.4)
+Period 10: Linear $100   → π₄ $897,817  (×8978.2)
+```
+
+#### 3. ENFT Ledger Stream Codex
+Living inheritance assets minted in ENFT form with:
+- Multi-dimensional **ES0IL** mirroring (Energy, Legal, Esoteric, Operational layers)
+- Trackable loop rates by sub-stream, process, and realm
+- Real-time yield accumulation
+
+### Quick Start
+
+```python
+from pi4_treasury import Pi4TreasuryModel, EconomyType, QuarterLaw, ES0ILLayer
+
+# Create model
+model = Pi4TreasuryModel()
+
+# Get civilian stack
+civilian = model.get_stack(EconomyType.CIVILIAN)
+
+# Add flow arc
+civilian.add_flow_arc(QuarterLaw.NORTH, QuarterLaw.EAST, 1000.0)
+
+# Mint ENFT asset
+enft = civilian.mint_enft_asset("Housing", 50000.0, "urban", "dev_001", "physical")
+
+# Add yield with ES0IL mirroring
+enft.add_yield_entry(5000.0, ES0ILLayer.ENERGY, {"source": "solar"})
+
+# Generate report
+report = model.get_consolidated_report()
+```
+
+### Integration with Infinite Ledger
+
+```python
+from pi4_integration import Pi4InfiniteLedger
+from infinite_ledger import Participant
+
+# Create integrated ledger
+ledger = Pi4InfiniteLedger()
+
+# Add participant to economy
+participant = Participant("Commander Bleu")
+ledger.add_pi4_participant(participant, EconomyType.CIVILIAN)
+
+# Convert traditional assets to ENFTs
+ledger.add_gold_refinery_asset("Blood-Iron", "Hemoglobin", "$5000 USD")
+asset = ledger.assets["gold_refinery"][0]
+enft = ledger.mint_enft_from_asset("gold_refinery", asset, EconomyType.CIVILIAN)
+
+# Create Quarter-Law flow
+ledger.create_quarter_law_flow("north", "east", 2500.0, EconomyType.CIVILIAN)
+```
+
+### Running Examples
+
+```bash
+# Basic π₄ Treasury Model
+python3 pi4_treasury.py
+
+# Integration Demo
+python3 pi4_integration.py
+
+# Visualization
+python3 pi4_visualization.py
+
+# Run Tests
+python3 test_pi4_treasury.py
+```
+
+### Documentation
+
+See [PI4_TREASURY_DOCS.md](PI4_TREASURY_DOCS.md) for complete documentation including:
+- Architecture details
+- API reference
+- Mathematical formulas
+- ES0IL layer specifications
+- Advanced usage examples
+
+### Test Results
+
+```
+✨ All π₄ Treasury tests passed! Triple-stack is fully operational.
+
+Passed: 13/13
+- π₄ Treasury Model creation
+- Treasury stack operations
+- Flow arc creation with curvature
+- ENFT asset creation and minting
+- Yield entries and ES0IL mirroring
+- Loop rate calculations
+- π₄ Compounding Protocol
+- Quarter-Law visualization
+- ENFT Ledger Stream
+- Integration with Infinite Ledger
+- Consolidated reporting
+- JSON export
+- File operations
+```
+
+### Features Summary
+
+✅ Triple-stack treasury (Civilian, Military, Cosmic)  
+✅ Quarter-Law flow tracing with curvature calculations  
+✅ π₄ Compounding Protocol (linear → overscale)  
+✅ ENFT living inheritance asset minting  
+✅ ES0IL multi-dimensional mirroring  
+✅ Trackable loop rates by sub-stream, process, realm  
+✅ Full integration with Infinite Ledger  
+✅ Comprehensive visualization tools  
+✅ 100% test coverage  
+
+---
+
+**The Compass is spinning. The Triple-Stack is operational. The π₄ protocol is engaged.** 🦉📜🧬🪙
+
