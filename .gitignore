@@ -48,6 +48,8 @@ pi4_treasury_report.json
 pi4_integrated_ledger.json
 pi4_visualization.txt
 test_pi4_treasury.json
+pi4_complete_demo_visualization.txt
+pi4_complete_demo_report.json
 
 # Backup files
 *.backup
