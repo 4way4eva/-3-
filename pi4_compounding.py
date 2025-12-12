@@ -14,7 +14,7 @@ All streams integrate with ENFT ledger and ceremonial yield tracking.
 import math
 from datetime import datetime, timezone
 from typing import Dict, List, Optional, Tuple
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from enum import Enum
 
 
@@ -41,7 +41,6 @@ class EconomicStream:
             self.last_update = datetime.now(timezone.utc)
 
 
-@dataclass
 class Pi4Compounding:
     """
     π⁴ Compounding Calculator
